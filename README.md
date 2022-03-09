@@ -1,75 +1,73 @@
-Spectrum Analyzer for the Rigol DS1000 series digital scopes    
+Spectrum Analyzer for the Rigol DS1000 series digital scopes  V1.1  
   
 RF Spectrum Analyzer in Python. This is a modified version of PA2OHH's audio spectrum analyzer:  
 http://www.qsl.net/pa2ohh/11sa.htm  
   
-It uses National Instruments VISA driver to download samples from the scope, perform FFTs and show the results. I used the PyVISA 1.4 wrapper:  
+It is a fork project of Rich Heslip VE3MKC, https://github.com/rheslip/PyDSA
+  
+It uses National Instruments VISA driver to download samples from the scope, perform FFTs and show the results. I used the PyVISA 1.5 wrapper:  
 http://pyvisa.readthedocs.org/en/latest/getting_nivisa.html  
 
-Written for Python 2.7 under Windows 7, not tested in other environments  
+It was adapted to work with Python 3.x
 
 Dependencies:    
-PyVISA  1.4
+PyVISA  1.5
 math  
 numpy  
 Tkinter  
 
 Changelog:  
-9-20-2015 - first release  
+20. 9. 2015 - first release  
+10. 5. 2019 - modifications by Gregor Kocar S53SL
 
 
-TODO:  
--blows up with some combinations of FFT size, averaging and padding - looks like an array indexing bug  
+Notes: 
+Modifications by Gregor Kocar S53SL
+ modified to work with Python3.0 and VISA1.5
+ This version has a modified Sweep()
+ adapted to be packaged as exe
+ added dynamic markers + peak value
+ added zoom function
+ added screenshot button
+ added navigation
+ resizable window  
 
--there are a lot of spurs in the spectrum. May be possible to fix in software but I think this is a limitation of the scope itself  
 
-Notes:  
-
-9-30-2015 - tried to make it work with PyVISA 1.8 but the interface has changed a lot and it broke LONG scope buffer mode. Went back to PyVISA 1.4 
-
-Jan 31 2016 - included DS1054Z patch by Marcus and a full version for the DS1054Z by Kerr Smith
-
-Also included is Rigol_view, a short Python script which grabs the sample buffer and shells to wfm_view to show the results. wfm_view shows the same spurs in the spectrum.  
-wfm_view can be found at:  
-http://meteleskublesku.cz/wfm_view/  
-
-project blog: rheslip.blogspot.com
 
 Kerr Smith provided these step by step installation instructions:
+(modifired by Gregor Kočar)
 
 I first installed the latest National Instruments VISA runtime:
 
 http://www.ni.com/download/ni-visa-run-time-engine-15.0/5379/en/NIVISA1500runtime.exe
 
-Next I installed Python 2.7 making sure Python was added to the path (this is so you can run python from the command line from any directory):
+Next I installed Python 3.x making sure Python was added to the path (this is so you can run python from the command line from any directory):
 
-https://www.python.org/downloads/release/python-2711/python-2.7.11.amd64.msi
+https://www.python.org/downloads/
+
+Check if pip is installed:
+pip -V
+if not follow this instructions:
+https://phoenixnap.com/kb/install-pip-windows
+
 
 Next I updated pip and setuptools as well as installing wheel as recommend on:
 http://python-packaging-user-guide.readthedocs.org/en/latest/installing/#install-pip-setuptools-and-wheel
-python -m pip install -U pip setuptools
-pip install wheel
+pip3 install setuptools
+pip3 install wheel
+pip3 install mock
 
-I now updated mock as I could not get any further due to an error (on next step) saying 'Requires setuptools >=17.1 to install properly', the following fixed this issue and seemed to update a couple of other things as well:
+Next I installed pyvisa version 1.5 as recommend (the mock update above made this work):
 
-pip install mock
+pip3 install pyvisa==1.5
 
-Next I installed pyvisa version 1.4 as recommend (the mock update above made this work):
 
-pip install pyvisa==1.4
-
-Next I installed numpy, this initially did not work and showed this 'error: Unable to find vcvarsall.bat', so I installed the Microsoft Visual C++ Compiler for Python 2.7:
-
-https://www.microsoft.com/en-gb/download/details.aspx?id=44266
-VCForPython27.msi
-
-Now numpy installed, it took a while as it needed to compile and there was no real progress update so I just left it and after a few minutes it finished and said it had installed.
-
-pip install numpy
+pip3 install numpy
+pip install Pillow
 
 Next I downloaded the PyDSA code from Github:
 
-https://github.com/rheslip/PyDSA
+https://github.com/GregorKocar/PyDSA-PLUS
 
-The file to run is in the PyDSA directory and is called PyDSA.py
+The file to run is in the PyDSA-PLUS directory and is called PyDSA.pyw
 
