@@ -23,14 +23,14 @@ Changelog:
 
 Notes: 
 Modifications by Gregor Kocar S53SL
- modified to work with Python3.0 and VISA1.5
- This version has a modified Sweep()
- adapted to be packaged as exe
- added dynamic markers + peak value
- added zoom function
- added screenshot button
- added navigation
- resizable window  
+ modified to work with Python3.0 and VISA1.5  
+ This version has a modified Sweep()  
+ adapted to be packaged as exe  
+ added dynamic markers + peak value  
+ added zoom function  
+ added screenshot button  
+ added navigation  
+ resizable window    
 
 
 
