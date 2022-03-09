@@ -22,7 +22,7 @@ Changelog:
 
 
 Notes: 
-Modifications by Gregor Kocar S53SL
+Modifications by Gregor Kocar S53SL  
  modified to work with Python3.0 and VISA1.5  
  This version has a modified Sweep()  
  adapted to be packaged as exe  
@@ -69,5 +69,12 @@ Next I downloaded the PyDSA code from Github:
 
 https://github.com/GregorKocar/PyDSA-PLUS
 
-The file to run is in the PyDSA-PLUS directory and is called PyDSA.pyw
+The file to run is in the PyDSA-PLUS directory and is called PyDSA.pyw  
+
+WINDOWS EXECUTABLE
+
+You can find Windows executable in folder Windows.
+To run it just download it to your computer.
+It needs VISA driver and USB cable connection to your digital scope to function properly
+
 
